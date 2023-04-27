@@ -1,0 +1,14 @@
+﻿[
+  {
+    "index": 0,
+    "name": "바알",
+    "description": "샘플캐릭터",
+    "skill": 0
+  },
+  {
+    "index": 1,
+    "name": "알로캐스",
+    "description": "샘플2",
+    "skill": 1
+  }
+]
