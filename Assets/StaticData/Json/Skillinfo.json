@@ -1,0 +1,14 @@
+﻿[
+  {
+    "index": 2000,
+    "name": "SpiderCrush",
+    "description": "1턴짜리 샘플",
+    "turnCost": 1,
+    "effectorList": [
+      1,
+      2
+    ],
+    "ultimateType": "HP",
+    "ultimateValue": 100
+  }
+]
