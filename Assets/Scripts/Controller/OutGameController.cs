@@ -18,9 +18,7 @@ namespace ProjectG
     {
         UIManager uiMgr;
 
-
         UIMenuSelector uiMenuSelector;
-
 
         Dictionary<OutGameStateType, OutGameState> cachedState = new Dictionary<OutGameStateType, OutGameState>();
 
