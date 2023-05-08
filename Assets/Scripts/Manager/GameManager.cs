@@ -24,38 +24,34 @@ namespace ProjectG
         // 컨트롤러 풀 (FSM)
         Dictionary<SceneType, Controller> controllers = new Dictionary<SceneType, Controller>();
 
-
-        public SceneType sceneType;
         // 현재 사용중인 컨트롤러
-
-        public static Controller controller => Instance.controllers[Instance.sceneType];
+        Controller _controller;
+        public static Controller controller => Instance._controller;
 
 
         protected override void Awake()
         {
             DontDestroyOnLoad(this);
 
-
             // 매니저 초기화
             GetManager<UIManager>().InitManager();
-            // GetManager<DataManager>().InitManager();
-            // Debug.Log("Init GameManager");
+            GetManager<DataManager>().InitManager();
+
             // 컨트롤러 fsm 등록
-            controllers.Add(SceneType.OutGame, CreateController<OutGameController>());
-            controllers.Add(SceneType.InGame, CreateController<InGameController>());
+            controllers.Add(SceneType.OutGame, new OutGameController());
             // 테스트용
-            SelectController(SceneType.InGame);
+            SelectController(SceneType.OutGame);
 
 
         }
         public void SelectController(SceneType sceneType)
         {
-            this.sceneType = sceneType;
-            controller.InitController();
+            _controller = controllers[sceneType];
+            _controller.InitController();
         }
         public void Update()
         {
-            controller?.UpdateController();
+            _controller?.UpdateController();
 
             foreach (var item in managers)
             {
@@ -89,12 +85,8 @@ namespace ProjectG
         public static T GetController<T>() where T : Controller
         {
             return Instance.controllers as T;
-        }
-        public T CreateController<T>() where T : Controller
-        {
-            var go = new GameObject(typeof(T).Name);
-            go.transform.SetParent(transform);
-            return go.AddComponent<T>();
+
+
         }
         /// <summary>
         /// 매니저를 추가하는 함수

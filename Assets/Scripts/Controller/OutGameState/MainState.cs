@@ -4,7 +4,6 @@
     {
         public MainState(UIWindow window) : base(window)
         {
-
         }
 
         public override void Enter(OutGameController target)
