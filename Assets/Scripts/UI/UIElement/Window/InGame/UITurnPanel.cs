@@ -2,22 +2,12 @@
 using System.Drawing;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace ProjectG
 {
     public class UITurnPanel : UIWindow
     {
-        public void OnGUI()
-        {
-            var style = new GUIStyle(GUI.skin.button);
-            style.fontSize = 70;
-            if (GUILayout.Button("ADD1", style)) AddSkill(new Skill() { leftCost = 0 });
-            if (GUILayout.Button("ADD2", style)) AddSkill(new Skill() { leftCost = 1 });
-            if (GUILayout.Button("ADD3", style)) AddSkill(new Skill() { leftCost = 2 });
-            if (GUILayout.Button("POP", style)) PopSkiil();
-            if (GUILayout.Button("NEXT", style)) NextTurn();
-        }
+
         // -TODO- 옵젝풀로 바꿔야함
         [SerializeField]
         GameObject turnSlotPrefab;
@@ -87,11 +77,15 @@ namespace ProjectG
         public void SettingSlots()
         {
             int pos = 0;
-            turnSlots[0][0].transform.position =
-                 Vector3.Lerp(
-                 turnSlots[0][0].transform.position,
-                 slotPos[pos],
-                 Time.deltaTime * 10);
+
+            if (turnSlots[0].Count > 0)
+            {
+                turnSlots[0][0].transform.position =
+                     Vector3.Lerp(
+                     turnSlots[0][0].transform.position,
+                     slotPos[pos],
+                     Time.deltaTime * 10);
+            }
             pos += 2;
 
             for (int i = 0; i < turnSlots.Count; i++)
@@ -121,7 +115,18 @@ namespace ProjectG
         {
             SetCanvasGroup(false);
         }
-
+        #region Editor GUI
+        public void OnGUI()
+        {
+            // var style = new GUIStyle(GUI.skin.button);
+            // style.fontSize = 70;
+            // if (GUILayout.Button("ADD1", style)) AddSkill(new Skill() { leftCost = 0 });
+            // if (GUILayout.Button("ADD2", style)) AddSkill(new Skill() { leftCost = 1 });
+            // if (GUILayout.Button("ADD3", style)) AddSkill(new Skill() { leftCost = 2 });
+            // if (GUILayout.Button("POP", style)) PopSkiil();
+            // if (GUILayout.Button("NEXT", style)) NextTurn();
+        }
+        #endregion
     }
 
 

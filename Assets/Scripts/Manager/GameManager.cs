@@ -37,16 +37,27 @@ namespace ProjectG
 
 
             // 매니저 초기화
-            GetManager<UIManager>().InitManager();
-            // GetManager<DataManager>().InitManager();
-            // Debug.Log("Init GameManager");
-            // 컨트롤러 fsm 등록
-            controllers.Add(SceneType.OutGame, CreateController<OutGameController>());
-            controllers.Add(SceneType.InGame, CreateController<InGameController>());
+            RegistManager();
+
+
+
+
+            controllers.Add(SceneType.OutGame, LoadController<OutGameController>());
+            controllers.Add(SceneType.InGame, LoadController<InGameController>());
             // 테스트용
             SelectController(SceneType.InGame);
 
 
+        }
+        public void RegistManager()
+        {
+
+            var mg = FindObjectsOfType<Manager>();
+            foreach (var item in mg)
+            {
+                managers.Add(item.GetType().Name, item);
+                item.InitManager();
+            }
         }
         public void SelectController(SceneType sceneType)
         {
@@ -85,6 +96,12 @@ namespace ProjectG
             return Instance.AddManager<T>();
 
 
+        }
+        public T LoadController<T>() where T : Controller
+        {
+            var ctrller = FindObjectOfType<T>();
+            if (!ctrller) ctrller = CreateController<T>();
+            return ctrller;
         }
         public static T GetController<T>() where T : Controller
         {

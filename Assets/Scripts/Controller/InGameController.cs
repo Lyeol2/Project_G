@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace ProjectG
@@ -6,10 +7,7 @@ namespace ProjectG
     public enum InGameStateType
     {
         Main,
-        Party,
-        Pickup,
-        Encycolopedia,
-        Option,
+        Battle,
     }
     /// <summary>
     /// 전투씬
@@ -18,17 +16,18 @@ namespace ProjectG
     {
         // ------------- Characters -------------------
 
-        // 0~3 : 메인캐릭터 / 4 서브캐릭터
+        public Character subCharacter;
+
+
+        // 전열 중열 후열
         [SerializeField]
-        public Character[] playerCharacters = new Character[5];
-
-
+        public List<Character>[] playerCharacters = new List<Character>[3];
 
 
 
         Dictionary<InGameStateType, InGameState> cachedState = new Dictionary<InGameStateType, InGameState>();
 
-        InGameState currentState;
+        InGameStateType currentState;
 
         public override void InitController()
         {
@@ -36,21 +35,33 @@ namespace ProjectG
 
         }
 
+        private void OnGUI()
+        {
+            if (currentState != InGameStateType.Battle) return;
+
+            var style = new GUIStyle(GUI.skin.button);
+            style.fontSize = 70;
+            if (GUILayout.Button("Skip", style))
+            {
+                GetState<BattleState>().SkipTurn();
+            }
+        }
 
         public void ChangeState(InGameStateType type)
         {
-            currentState?.Exit(this);
 
-            currentState = cachedState[type];
+            cachedState[currentState]?.Exit(this);
 
-            currentState?.Enter(this);
+            currentState = type;
+
+            cachedState[currentState]?.Enter(this);
         }
 
         public T GetState<T>() where T : InGameState
         {
-            if (currentState is T)
+            if (cachedState[currentState] is T)
             {
-                return currentState as T;
+                return cachedState[currentState] as T;
             }
 
             Debug.LogError($"currentState is not {typeof(T).Name}");

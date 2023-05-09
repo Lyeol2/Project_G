@@ -15,6 +15,7 @@ namespace ProjectG
         }      
         public virtual void Idle(OutGameController target)
         {      
+
         }      
         public virtual void Exit(OutGameController target)
         {
