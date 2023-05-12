@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectG;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class StaticDataModule
 {
     public List<SDCharacter> sdCharacter;
     public List<SDSkill> sdSkill;
+    public List<SDEffector> sdEffector;
 
     public void Initialize()
     {
@@ -20,6 +22,7 @@ public class StaticDataModule
 
         loader.Load(out sdCharacter);
         loader.Load(out sdSkill);
+        loader.Load(out sdEffector);
     }
 
 

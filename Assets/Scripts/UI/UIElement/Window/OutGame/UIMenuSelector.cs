@@ -30,10 +30,10 @@ namespace ProjectG
         public void BindingButton(OutGameController controller)
         {
 
-            mainButton.onClick.AddListener(() => controller.ChangeState(OutGameStateType.Main));
-            partyButton.onClick.AddListener(() => controller.ChangeState(OutGameStateType.Party));
-            pickupButton.onClick.AddListener(() => controller.ChangeState(OutGameStateType.Pickup));
-            encycolopediaButton.onClick.AddListener(() => controller.ChangeState(OutGameStateType.Encycolopedia));
+            mainButton.onClick.AddListener(() => controller.ChangeState(EOutGameStateType.Main));
+            partyButton.onClick.AddListener(() => controller.ChangeState(EOutGameStateType.Party));
+            pickupButton.onClick.AddListener(() => controller.ChangeState(EOutGameStateType.Pickup));
+            encycolopediaButton.onClick.AddListener(() => controller.ChangeState(EOutGameStateType.Encycolopedia));
         }
 
 

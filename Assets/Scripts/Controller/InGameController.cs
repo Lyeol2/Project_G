@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ProjectG
 {
-    public enum InGameStateType
+    public enum EInGameStateType
     {
         Main,
         Battle,
@@ -25,29 +25,32 @@ namespace ProjectG
 
 
 
-        Dictionary<InGameStateType, InGameState> cachedState = new Dictionary<InGameStateType, InGameState>();
+        Dictionary<EInGameStateType, InGameState> cachedState = new Dictionary<EInGameStateType, InGameState>();
 
-        InGameStateType currentState;
+        EInGameStateType currentState;
 
         public override void InitController()
         {
             base.InitController();
-
         }
 
         private void OnGUI()
         {
-            if (currentState != InGameStateType.Battle) return;
 
             var style = new GUIStyle(GUI.skin.button);
             style.fontSize = 70;
+
             if (GUILayout.Button("Skip", style))
             {
-                GetState<BattleState>().SkipTurn();
+                GameManager.GetManager<UIManager>().GetUIWindow<UITurnPanel>().NextTurn();
+            }
+            if (GUILayout.Button("Pop", style))
+            {
+                GameManager.GetManager<UIManager>().GetUIWindow<UITurnPanel>().PopSkiil();
             }
         }
 
-        public void ChangeState(InGameStateType type)
+        public void ChangeState(EInGameStateType type)
         {
 
             cachedState[currentState]?.Exit(this);

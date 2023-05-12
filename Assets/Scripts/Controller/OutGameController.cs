@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectG
 {
-    public enum OutGameStateType
+    public enum EOutGameStateType
     {
         Main,
         Party,
@@ -20,7 +20,7 @@ namespace ProjectG
 
         UIMenuSelector uiMenuSelector;
 
-        Dictionary<OutGameStateType, OutGameState> cachedState = new Dictionary<OutGameStateType, OutGameState>();
+        Dictionary<EOutGameStateType, OutGameState> cachedState = new Dictionary<EOutGameStateType, OutGameState>();
 
         OutGameState currentState;
 
@@ -30,12 +30,12 @@ namespace ProjectG
 
             uiMgr = GameManager.GetManager<UIManager>();
 
-            cachedState.Add(OutGameStateType.Main, new MainState(uiMgr.GetUIWindow<UIMainPanel>()));
-            cachedState.Add(OutGameStateType.Party, new PartyState(uiMgr.GetUIWindow<UIPartyPanel>()));
-            cachedState.Add(OutGameStateType.Pickup, new PickupState(uiMgr.GetUIWindow<UIPickupPanel>()));
-            cachedState.Add(OutGameStateType.Encycolopedia, new EncycolopediaState(uiMgr.GetUIWindow<UIEncycolopediaPanel>()));
+            cachedState.Add(EOutGameStateType.Main, new MainState(uiMgr.GetUIWindow<UIMainPanel>()));
+            cachedState.Add(EOutGameStateType.Party, new PartyState(uiMgr.GetUIWindow<UIPartyPanel>()));
+            cachedState.Add(EOutGameStateType.Pickup, new PickupState(uiMgr.GetUIWindow<UIPickupPanel>()));
+            cachedState.Add(EOutGameStateType.Encycolopedia, new EncycolopediaState(uiMgr.GetUIWindow<UIEncycolopediaPanel>()));
 
-            ChangeState(OutGameStateType.Main);
+            ChangeState(EOutGameStateType.Main);
 
             uiMenuSelector = uiMgr.GetUIWindow<UIMenuSelector>();
             uiMenuSelector.BindingButton(this);
@@ -43,7 +43,7 @@ namespace ProjectG
         }
 
 
-        public void ChangeState(OutGameStateType type)
+        public void ChangeState(EOutGameStateType type)
         {
             currentState?.Exit(this);
 

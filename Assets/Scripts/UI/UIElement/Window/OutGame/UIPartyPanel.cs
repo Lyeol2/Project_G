@@ -8,7 +8,6 @@
         }
         public override void Hide()
         {
-
             SetCanvasGroup(false);
         }
     }

@@ -14,13 +14,12 @@ namespace ProjectG
             window.Show();
         }      
         public virtual void Idle(OutGameController target)
-        {      
+        {   
 
         }      
         public virtual void Exit(OutGameController target)
         {
             window.Hide();
         }
-
     }
 }

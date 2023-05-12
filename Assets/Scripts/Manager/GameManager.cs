@@ -5,7 +5,7 @@ using Utility;
 
 namespace ProjectG
 {
-    public enum SceneType
+    public enum ESceneType
     {
         Title,
         InGame,
@@ -22,10 +22,10 @@ namespace ProjectG
         // 매니저 풀
         Dictionary<string, Manager> managers =  new Dictionary<string, Manager>();
         // 컨트롤러 풀 (FSM)
-        Dictionary<SceneType, Controller> controllers = new Dictionary<SceneType, Controller>();
+        Dictionary<ESceneType, Controller> controllers = new Dictionary<ESceneType, Controller>();
 
 
-        public SceneType sceneType;
+        public ESceneType sceneType;
         // 현재 사용중인 컨트롤러
 
         public static Controller controller => Instance.controllers[Instance.sceneType];
@@ -42,10 +42,10 @@ namespace ProjectG
 
 
 
-            controllers.Add(SceneType.OutGame, LoadController<OutGameController>());
-            controllers.Add(SceneType.InGame, LoadController<InGameController>());
+            controllers.Add(ESceneType.OutGame, LoadController<OutGameController>());
+            controllers.Add(ESceneType.InGame, LoadController<InGameController>());
             // 테스트용
-            SelectController(SceneType.InGame);
+            SelectController(ESceneType.InGame);
 
 
         }
@@ -59,7 +59,7 @@ namespace ProjectG
                 item.InitManager();
             }
         }
-        public void SelectController(SceneType sceneType)
+        public void SelectController(ESceneType sceneType)
         {
             this.sceneType = sceneType;
             controller.InitController();
@@ -75,7 +75,7 @@ namespace ProjectG
         }
 
 
-        public void LoadScene(SceneType sceneType)
+        public void LoadScene(ESceneType sceneType)
         {
 
         }

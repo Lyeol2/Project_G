@@ -685,6 +685,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  skill:
+    isSetting: 0
+    leftCost: 2
+    speed: 0
 --- !u!1 &2634239964273158849
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  skill:
+    isSetting: 0
+    leftCost: 1
+    speed: 0
 --- !u!1 &4170357027071593149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1501,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  skill:
+    isSetting: 0
+    leftCost: 0
+    speed: 0
 --- !u!1 &8202094036505368623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1667,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  skill:
+    isSetting: 0
+    leftCost: 0
+    speed: 0
 --- !u!1 &8549986337131142119
 GameObject:
   m_ObjectHideFlags: 0
