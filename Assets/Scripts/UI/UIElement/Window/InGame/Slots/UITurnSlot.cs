@@ -61,11 +61,19 @@ namespace ProjectG
             {
                 RegistTurnPanel();
             }
+            else
+            {
+                RemoveTurnPanel();
+            }
+        }
+        private void RemoveTurnPanel()
+        {
+            uiTurnPanel.RemoveSkill(this);
         }
         // 턴 패널에 등록합니다
         private void RegistTurnPanel()
         {
-            uiTurnPanel.AddSkill(skill);
+            uiTurnPanel.AddSkill(this);
         }
     }
 }

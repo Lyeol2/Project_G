@@ -59,18 +59,25 @@ namespace ProjectG
             turnSlots.RemoveAt(0);
             turnSlots.Add(new List<UITurnSlot>());
         }
-        public void AddSkill(Skill skill)
+        public void AddSkill(UITurnSlot slot)
         {
-            var slot = Instantiate(turnSlotPrefab).GetComponent<UITurnSlot>();
-            slot.SetSlot(skill);
-            slot.transform.SetParent(slotPool.transform);
+            var newSlot = Instantiate(turnSlotPrefab).GetComponent<UITurnSlot>();
 
-            turnSlots[slot.skill.leftCost].Add(slot);
+            newSlot.transform.position = slot.transform.position;
+            newSlot.SetSlot(slot.skill);
+            newSlot.transform.SetParent(slotPool.transform);
+
+            turnSlots[newSlot.skill.leftCost].Add(newSlot);
             
         }
-        public void RemoveSkill(Skill skill)
+        public void RemoveSkill(UITurnSlot slot)
         {
+            for (int i = 0; i < turnSlots.Count; i++)
+            {
+                turnSlots[i].Remove(slot);
 
+            }
+            Destroy(slot.gameObject);
         }
 
         public override void UpdateUI()
