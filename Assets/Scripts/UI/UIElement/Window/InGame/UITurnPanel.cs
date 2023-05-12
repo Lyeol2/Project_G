@@ -8,6 +8,7 @@ namespace ProjectG
     public class UITurnPanel : UIWindow
     {
 
+
         // -TODO- 옵젝풀로 바꿔야함
         [SerializeField]
         GameObject turnSlotPrefab;
@@ -23,6 +24,8 @@ namespace ProjectG
         public override void InitUI()
         {
             base.InitUI();
+
+
             for (int i = 0; i < 3; i++)
             {
                 turnSlots.Add(new List<UITurnSlot>());
@@ -37,6 +40,8 @@ namespace ProjectG
             }
 
         }
+
+
         public UITurnSlot PopSkiil()
         {
             var slot = turnSlots[0][0];
@@ -71,6 +76,7 @@ namespace ProjectG
         public override void UpdateUI()
         {
             base.UpdateUI();
+
             SettingSlots();
 
         }

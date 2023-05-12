@@ -36,11 +36,16 @@ namespace ProjectG
 
         public abstract void Hide();
 
-        protected void SetCanvasGroup(bool isActive)
+        protected void SetCanvasGroup(bool isActive, bool blocksRaycast = true)
         {
             canvasGroup.alpha = (isActive ? 1 : 0);
             canvasGroup.interactable = isActive;
-            canvasGroup.blocksRaycasts = isActive;
+            canvasGroup.blocksRaycasts = isActive && blocksRaycast;
+        }
+
+        public bool IsActive()
+        {
+            return canvasGroup.alpha != 0;
         }
 
 
