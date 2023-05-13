@@ -3,12 +3,16 @@
 namespace ProjectG
 {
     // 이펙트
-    public class Effector : MonoBehaviour
+    public class Effector
     {
-        SDEffector effector;
+        public SDEffector sdEffector;
 
 
-
+        public void SetEffector(int index)
+        {
+            var staticLoader = GameManager.GetManager<DataManager>().SD;
+            sdEffector = staticLoader.sdEffector.Find(_ => _.index == index);
+        }
 
     }
 

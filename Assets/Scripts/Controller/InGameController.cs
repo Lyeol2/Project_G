@@ -6,8 +6,14 @@ namespace ProjectG
 {
     public enum EInGameStateType
     {
-        Main,
+        Move,
         Battle,
+    }
+    public enum ECampPos
+    {
+        Front,
+        Middle,
+        Back,
     }
     /// <summary>
     /// 전투씬
@@ -32,6 +38,16 @@ namespace ProjectG
         public override void InitController()
         {
             base.InitController();
+
+            cachedState.Add(EInGameStateType.Move, new BattleState());
+            cachedState.Add(EInGameStateType.Battle, new BattleState());
+
+            // -------- TODO SAMPLE -------------
+
+            var character = new Character();
+            AddCharacter(ECampPos.Front, )
+
+            ChangeState(EInGameStateType.Battle);
         }
 
         private void OnGUI()
@@ -42,14 +58,13 @@ namespace ProjectG
 
             if (GUILayout.Button("Skip", style))
             {
-                GameManager.GetManager<UIManager>().GetUIWindow<UITurnPanel>().NextTurn();
-            }
-            if (GUILayout.Button("Pop", style))
-            {
-                GameManager.GetManager<UIManager>().GetUIWindow<UITurnPanel>().PopSkiil();
+                GetState<BattleState>().PlayTurn();
             }
         }
-
+        private void AddCharacter(ECampPos pos, Character character)
+        {
+            playerCharacters[(int)pos].Add(character);
+        }
         public void ChangeState(EInGameStateType type)
         {
 

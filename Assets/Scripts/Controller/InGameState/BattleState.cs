@@ -9,6 +9,8 @@ namespace ProjectG
         int turnCount = 1;
 
 
+        UITurnPanel turnPanel;
+
         List<Character>[] enemyCharacters = new List<Character>[3];
 
 
@@ -17,7 +19,7 @@ namespace ProjectG
         {
             base.Enter(target);
 
-            
+            turnPanel = GameManager.GetManager<UIManager>().GetUIWindow<UITurnPanel>();
 
 
 
@@ -34,7 +36,7 @@ namespace ProjectG
 
         }
 
-        public void SkipTurn()
+        public void PlayTurn()
         {
 
         }

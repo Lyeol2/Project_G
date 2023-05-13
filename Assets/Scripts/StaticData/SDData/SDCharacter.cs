@@ -3,6 +3,5 @@ public class SDCharacter : StaticData
 {
     public string name;
     public string description;
-    public int skill;
-    public string
+    public int[] skill;
 }
