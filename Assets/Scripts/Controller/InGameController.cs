@@ -44,8 +44,9 @@ namespace ProjectG
 
             // -------- TODO SAMPLE -------------
 
-            var character = new Character();
-            AddCharacter(ECampPos.Front, )
+            // var character = new Character();
+            // character.SetCharacter();
+            // AddCharacter(ECampPos.Front, character);
 
             ChangeState(EInGameStateType.Battle);
         }

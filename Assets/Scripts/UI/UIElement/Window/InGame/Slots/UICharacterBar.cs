@@ -8,6 +8,8 @@ namespace ProjectG
 {
     public class UICharacterBar : UIObject, IUISlot<Character>
     {
+        
+
 
         public override void InitUI()
         {
@@ -27,7 +29,6 @@ namespace ProjectG
         }
         public void SetSlot(Character info)
         {
-
 
         }
     }

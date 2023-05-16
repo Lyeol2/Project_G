@@ -19,12 +19,14 @@ namespace ProjectG
     [Flags]
     public enum ETargetingPosition
     {
-        PlayerBack      = 1,
-        PlayerMiddle    = 2,
-        PlayerFront     = 4,
-        EnemyFront      = 8,
-        EnemyMiddle     = 16,
-        EnemyBack       = 32,
+        None            = 1,
+        PlayerBack      = 2,
+        PlayerMiddle    = 4,
+        PlayerFront     = 8,
+        EnemyFront      = 16,
+        EnemyMiddle     = 32,
+        EnemyBack       = 64,
+        Last            = 128,
     }
     // 이펙트 데이터
     public class SDEffector : StaticData
@@ -42,7 +44,7 @@ namespace ProjectG
 
         public ETargetingType targetingType;
 
-        public ETargetingPosition targetPosition;
+        //public ETargetingPosition targetPosition;
 
     }
 }

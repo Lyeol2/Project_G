@@ -6,15 +6,19 @@ namespace ProjectG
     {
         public InGameState()
         {
+
         }
         public virtual void Enter(InGameController target)
         {
+
         }      
         public virtual void Idle(InGameController target)
-        {      
+        {   
+            
         }      
         public virtual void Exit(InGameController target)
         {
+
         }
 
     }

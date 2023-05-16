@@ -3,6 +3,7 @@ using UnityEngine.TextCore.Text;
 
 namespace ProjectG
 {
+    [System.Serializable]
     public class Skill
     {
         public SDSkill sdSkill;

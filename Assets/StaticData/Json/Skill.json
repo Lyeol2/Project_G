@@ -1,0 +1,43 @@
+﻿[
+  {
+    "index": 2000,
+    "name": "Baal's Attack",
+    "description": "바알의 공격입니다.",
+    "turnCost": 1,
+    "iconPath": "",
+    "effectors": [
+      0
+    ]
+  },
+  {
+    "index": 2001,
+    "name": "Belial's Attack",
+    "description": "벨리알의 공격입니다.",
+    "turnCost": 2,
+    "iconPath": "",
+    "effectors": [
+      1
+    ]
+  },
+  {
+    "index": 2002,
+    "name": "Alloces's Attack",
+    "description": "알로케스의 공격입니다.",
+    "turnCost": 3,
+    "iconPath": "",
+    "effectors": [
+      1,
+      2
+    ]
+  },
+  {
+    "index": 2003,
+    "name": "Asmoday's Attack",
+    "description": "아스모데우스의 공격입니다.",
+    "turnCost": 4,
+    "iconPath": "",
+    "effectors": [
+      3
+    ]
+  }
+]

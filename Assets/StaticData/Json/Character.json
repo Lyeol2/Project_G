@@ -1,14 +1,73 @@
 ﻿[
   {
-    "index": 0,
-    "name": "바알",
-    "description": "샘플캐릭터",
-    "skill": 0
+    "index": 1000,
+    "name": "Baal",
+    "maxLevel": 20,
+    "skills": [
+      2000,
+      2001,
+      2002,
+      2003
+    ]
   },
   {
-    "index": 1,
-    "name": "알로캐스",
-    "description": "샘플2",
-    "skill": 1
+    "index": 1001,
+    "name": "Belial",
+    "maxLevel": 20,
+    "skills": [
+      2000,
+      2001,
+      2002,
+      2003
+    ]
+  },
+  {
+    "index": 1002,
+    "name": "Alloces",
+    "maxLevel": 20,
+    "skills": [
+      2000,
+      2001,
+      2002,
+      2003
+    ]
+  },
+  {
+    "index": 1003,
+    "name": "Asmoday",
+    "maxLevel": 20,
+    "skills": [
+      2000,
+      2001,
+      2002,
+      2003
+    ]
+  },
+  {
+    "index": 2000,
+    "name": "WarriorKnight",
+    "maxLevel": 10,
+    "skills": [
+      2000,
+      2001
+    ]
+  },
+  {
+    "index": 2001,
+    "name": "BufferKnight",
+    "maxLevel": 10,
+    "skills": [
+      2002,
+      2003
+    ]
+  },
+  {
+    "index": 2002,
+    "name": "ShieldKnight",
+    "maxLevel": 10,
+    "skills": [
+      2000,
+      2003
+    ]
   }
 ]

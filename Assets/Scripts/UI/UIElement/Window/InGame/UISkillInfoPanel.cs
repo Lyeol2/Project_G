@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using TMPro;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +11,17 @@ namespace ProjectG
     public class UISkillInfoPanel : UIWindow, IUISlot<UITurnSlot>
     {
         RectTransform rect;
+
+        [SerializeField]
+        Image iconImage;
+
+        [SerializeField]
+        TMP_Text skillNameText;
+
+        [SerializeField]
+        TMP_Text leftTurnText;
+
+
 
         public override void Show()
         {
@@ -29,6 +42,7 @@ namespace ProjectG
             base.UpdateUI();
 
             SetPivot();
+
             if (IsActive())
             {
                 transform.position = Input.mousePosition;
@@ -55,6 +69,8 @@ namespace ProjectG
 
         public void SetSlot(UITurnSlot info)
         {
+            skillNameText.text = info.skill.sdSkill.name;
+            leftTurnText.text = "Left " + info.skill.leftCost + " Turn";
         }
     }
 }

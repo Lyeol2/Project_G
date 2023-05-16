@@ -10,7 +10,7 @@ namespace ProjectG
         Title,
         InGame,
         OutGame,
-        Loadig,
+        Loading,
         Test,
     }
     /// <summary>
@@ -40,19 +40,16 @@ namespace ProjectG
             RegistManager();
 
 
-
-
             controllers.Add(ESceneType.OutGame, LoadController<OutGameController>());
             controllers.Add(ESceneType.InGame, LoadController<InGameController>());
             // 테스트용
             SelectController(ESceneType.InGame);
 
-
         }
         public void RegistManager()
         {
-
             var mg = FindObjectsOfType<Manager>();
+
             foreach (var item in mg)
             {
                 managers.Add(item.GetType().Name, item);

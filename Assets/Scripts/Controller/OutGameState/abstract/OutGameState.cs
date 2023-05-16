@@ -5,6 +5,7 @@ namespace ProjectG
     public abstract class OutGameState : IState<OutGameController>
     {
         UIWindow window;
+
         public OutGameState(UIWindow window)
         {
             this.window = window;

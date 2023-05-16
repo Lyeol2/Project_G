@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace ProjectG
 {
+    [System.Serializable]
     public class UITurnSlot : UIObject, IUISlot<Skill>,IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         // InfoPanel에 고정되어있는 턴슬롯인지 확인합니다
         public bool isStatic = false;
+
+        [SerializeField]
+        Image iconImage; 
 
         UITurnPanel _uiTurnPanel = null;
         UITurnPanel uiTurnPanel

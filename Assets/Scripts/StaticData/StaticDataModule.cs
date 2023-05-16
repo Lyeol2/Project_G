@@ -4,11 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-/// <summary>
-/// 모든 기획 데이터를 들고 있는 클래스
-/// 데이터를 로드하고 들고 있기만 할 것이므로 모노를 상속받을 필요가 없음
-/// </summary>
-// 모노를 갖지 않는 일반 C# 클래스를 인스펙터에 노출시키기 위해 직렬화
 [Serializable]
 public class StaticDataModule
 {

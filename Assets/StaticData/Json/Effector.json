@@ -1,0 +1,38 @@
+﻿[
+  {
+    "index": 0,
+    "name": "바알의 공격입니다.",
+    "constantValue": 5.0,
+    "coefficientValue": 1.0,
+    "duration": 0,
+    "effectorType": "Attack",
+    "targetingType": "Single"
+  },
+  {
+    "index": 1,
+    "name": "벨리알의 공격입니다.",
+    "constantValue": 10.0,
+    "coefficientValue": 2.0,
+    "duration": 0,
+    "effectorType": "Attack",
+    "targetingType": "Multi"
+  },
+  {
+    "index": 2,
+    "name": "알로케스의 공격입니다.",
+    "constantValue": 15.0,
+    "coefficientValue": 3.0,
+    "duration": 1,
+    "effectorType": "Attack",
+    "targetingType": "Multi"
+  },
+  {
+    "index": 3,
+    "name": "아스모데우스의 공격입니다.",
+    "constantValue": 20.0,
+    "coefficientValue": 4.0,
+    "duration": 2,
+    "effectorType": "Attack",
+    "targetingType": "All"
+  }
+]

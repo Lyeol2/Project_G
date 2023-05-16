@@ -1,7 +1,10 @@
-﻿[System.Serializable]
+﻿using System;
+
+[System.Serializable]
 public class SDCharacter : StaticData
 {
     public string name;
-    public string description;
+    public int maxLevel;
     public int[] skill;
+
 }

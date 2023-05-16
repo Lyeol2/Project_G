@@ -794,7 +794,8 @@ MonoBehaviour:
     index: 0
     name: 
     description: 
-    skill: 0
+    skill: 
+  skills: []
 --- !u!1 &764192333
 GameObject:
   m_ObjectHideFlags: 0

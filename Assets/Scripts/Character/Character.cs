@@ -9,25 +9,44 @@ namespace ProjectG
     {
         SpriteRenderer spriteRenderer;
 
-        [SerializeField]
-        SDCharacter character;
+
+        UICharacterInfoPanel characterInfoPanel;
 
         [SerializeField]
-        List<Skill> skills = new List<Skill>();
+        public SDCharacter sdCharacter;
+
+        public List<Skill> skills = new List<Skill>();
 
         private void Start()
         {
-            GetComponent<SpriteRenderer>();            
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            characterInfoPanel = GameManager.GetManager<UIManager>().GetUIWindow<UICharacterInfoPanel>();
         }
+
+        public void PlayCharacter()
+        {
+
+        }
+        
+        private void OnMouseDown()
+        {
+            SetUICharacterInfo();
+        }
+
+        private void SetUICharacterInfo()
+        {
+            characterInfoPanel.SetSlot(this);
+        }
+
         public void SetCharacter(int index)
         {
             var staticLoader = GameManager.GetManager<DataManager>().SD;
-            character = staticLoader.sdCharacter.Find(_ => _.index == index);
+            sdCharacter = staticLoader.sdCharacter.Find(_ => _.index == index);
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; ++i)
             {
                 var skill = new Skill();
-                skill.SetSkill(character.skill[i]);
+                skill.SetSkill(sdCharacter.skill[i]);
                 skills.Add(skill);
             }
         }

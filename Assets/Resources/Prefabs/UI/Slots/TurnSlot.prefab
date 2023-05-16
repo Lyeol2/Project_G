@@ -50,6 +50,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189e82ef9c22d9547b9e09e2e65fa68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
+  iconImage: {fileID: 2384337112450883145}
+  skill:
+    sdSkill:
+      index: 0
+      name: 
+      description: 
+      turnCost: 0
+      damage: 0
+      iconPath: 
+      effectors: 
+    isSetting: 0
+    leftCost: 0
+    speed: 0
 --- !u!1 &5049477833952989120
 GameObject:
   m_ObjectHideFlags: 0
