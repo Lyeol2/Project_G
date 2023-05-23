@@ -17,17 +17,18 @@ namespace ProjectG
         Multi,
     }
     [Flags]
-    public enum ETargetingPosition
+    public enum ECampPos
     {
-        None            = 1,
-        PlayerBack      = 2,
-        PlayerMiddle    = 4,
-        PlayerFront     = 8,
-        EnemyFront      = 16,
-        EnemyMiddle     = 32,
-        EnemyBack       = 64,
-        Last            = 128,
+        Enemy           = 1,
+        EnemyBack       = 2,
+        EnemyMiddle     = 4,
+        EnemyFront      = 8,
+        PlayerFront     = 16,
+        PlayerMiddle    = 32,
+        PlayerBack      = 64,
+        Player          = 128,
     }
+    [System.Serializable]
     // 이펙트 데이터
     public class SDEffector : StaticData
     {
@@ -44,7 +45,7 @@ namespace ProjectG
 
         public ETargetingType targetingType;
 
-        //public ETargetingPosition targetPosition;
+        public int targetPosition;
 
     }
 }

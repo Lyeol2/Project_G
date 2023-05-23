@@ -10,6 +10,7 @@ namespace ProjectG
         public virtual void InitController()
         {
 
+
         }
         public virtual void UpdateController()
         {

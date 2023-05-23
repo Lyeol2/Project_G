@@ -4,8 +4,4 @@
     {
         public void SetSlot(T info);
     }
-
-
-
-
 }

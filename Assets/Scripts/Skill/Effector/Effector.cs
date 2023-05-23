@@ -3,6 +3,7 @@
 namespace ProjectG
 {
     // 이펙트
+    [System.Serializable]
     public class Effector
     {
         public SDEffector sdEffector;

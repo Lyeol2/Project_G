@@ -44,6 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 2425087995
     locked: 0
-  - name: Player
+  - name: BackCharacter
     uniqueID: 1605071703
+    locked: 0
+  - name: NightPanel
+    uniqueID: 3999943159
+    locked: 0
+  - name: FrontCharacter
+    uniqueID: 2783901965
     locked: 0

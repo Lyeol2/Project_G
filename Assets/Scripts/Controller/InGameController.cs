@@ -4,32 +4,25 @@ using UnityEngine;
 
 namespace ProjectG
 {
+
     public enum EInGameStateType
     {
         Move,
         Battle,
-    }
-    public enum ECampPos
-    {
-        Front,
-        Middle,
-        Back,
+        Targeting,
+        
     }
     /// <summary>
     /// 전투씬
     /// </summary>
     public class InGameController : Controller
     {
+        // ------------- Prefabs ---------------
+        [SerializeField] GameObject playerCharacterPrefab;
         // ------------- Characters -------------------
 
-        public Character subCharacter;
-
-
-        // 전열 중열 후열
         [SerializeField]
-        public List<Character>[] playerCharacters = new List<Character>[3];
-
-
+        CharacterPool characterPool;
 
         Dictionary<EInGameStateType, InGameState> cachedState = new Dictionary<EInGameStateType, InGameState>();
 
@@ -39,14 +32,20 @@ namespace ProjectG
         {
             base.InitController();
 
-            cachedState.Add(EInGameStateType.Move, new BattleState());
+            cachedState.Add(EInGameStateType.Move, new MoveState());
             cachedState.Add(EInGameStateType.Battle, new BattleState());
+            cachedState.Add(EInGameStateType.Targeting, new TargetingState());
 
-            // -------- TODO SAMPLE -------------
+            characterPool = FindObjectOfType<CharacterPool>();
 
-            // var character = new Character();
-            // character.SetCharacter();
-            // AddCharacter(ECampPos.Front, character);
+            characterPool.Initialize();
+
+
+            characterPool.AddCharacter(ECampPos.PlayerFront, 1000);
+            characterPool.AddCharacter(ECampPos.EnemyFront, 1000);
+            characterPool.AddCharacter(ECampPos.EnemyMiddle, 1000);
+            characterPool.AddCharacter(ECampPos.EnemyBack, 1000);
+
 
             ChangeState(EInGameStateType.Battle);
         }
@@ -59,13 +58,14 @@ namespace ProjectG
 
             if (GUILayout.Button("Skip", style))
             {
-                GetState<BattleState>().PlayTurn();
             }
         }
-        private void AddCharacter(ECampPos pos, Character character)
+        // 스킬 타겟을 선택하는 패널 상태를 만듭니다.
+        public void OnSkillTargetSelect(ECampPos pos)
         {
-            playerCharacters[(int)pos].Add(character);
+            characterPool.SetOnPanelCharacter(pos);
         }
+
         public void ChangeState(EInGameStateType type)
         {
 
@@ -76,7 +76,18 @@ namespace ProjectG
             cachedState[currentState]?.Enter(this);
         }
 
-        public T GetState<T>() where T : InGameState
+        public T GetState<T>(EInGameStateType type) where T : InGameState
+        {
+            if (cachedState[type] is T)
+            {
+                return cachedState[type] as T;
+            }
+
+            Debug.LogError($"state didn't find {typeof(T).Name}");
+            return null;
+
+        }
+        public T GetCurrentState<T>() where T : InGameState
         {
             if (cachedState[currentState] is T)
             {

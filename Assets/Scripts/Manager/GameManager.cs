@@ -102,7 +102,7 @@ namespace ProjectG
         }
         public static T GetController<T>() where T : Controller
         {
-            return Instance.controllers as T;
+            return Instance.controllers[Instance.sceneType] as T;
         }
         public T CreateController<T>() where T : Controller
         {

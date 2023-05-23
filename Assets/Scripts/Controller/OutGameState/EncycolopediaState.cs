@@ -6,6 +6,7 @@
 
         public EncycolopediaState(UIWindow window) : base(window)
         {
+
         }
 
         public override void Enter(OutGameController target)
@@ -22,6 +23,7 @@
         public override void Exit(OutGameController target)
         {
             base.Exit(target);
+
         }
 
     }

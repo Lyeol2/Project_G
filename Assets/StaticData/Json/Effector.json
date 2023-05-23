@@ -6,7 +6,8 @@
     "coefficientValue": 1.0,
     "duration": 0,
     "effectorType": "Attack",
-    "targetingType": "Single"
+    "targetingType": "Single",
+    "targetPosition": 14
   },
   {
     "index": 1,
@@ -15,7 +16,8 @@
     "coefficientValue": 2.0,
     "duration": 0,
     "effectorType": "Attack",
-    "targetingType": "Multi"
+    "targetingType": "Multi",
+    "targetPosition": 8
   },
   {
     "index": 2,
@@ -24,7 +26,8 @@
     "coefficientValue": 3.0,
     "duration": 1,
     "effectorType": "Attack",
-    "targetingType": "Multi"
+    "targetingType": "Multi",
+    "targetPosition": 4
   },
   {
     "index": 3,
@@ -33,6 +36,7 @@
     "coefficientValue": 4.0,
     "duration": 2,
     "effectorType": "Attack",
-    "targetingType": "All"
+    "targetingType": "All",
+    "targetPosition": 2
   }
 ]

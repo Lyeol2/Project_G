@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -42,29 +43,27 @@ namespace ProjectG
         public override void InitUI()
         {
             base.InitUI();
-
         }
         public void OnPointerEnter(PointerEventData eventData)
         {
             skillInfoPanel?.Show();
             skillInfoPanel?.SetSlot(this);
         }
-
         public void OnPointerExit(PointerEventData eventData)
         {
             skillInfoPanel?.Hide();
         }
-
         public void SetSlot(Skill info)
         {
             skill = info;
         }
-
         public void OnPointerClick(PointerEventData eventData)
         {
             if (isStatic)
             {
-                RegistTurnPanel();
+                var inGame = GameManager.GetController<InGameController>();
+                inGame.GetState<TargetingState>(EInGameStateType.Targeting).usableSlot = this;
+                inGame.ChangeState(EInGameStateType.Targeting);
             }
             else
             {
