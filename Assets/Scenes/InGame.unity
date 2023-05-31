@@ -335,10 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campPos: 0
-  playerCharacters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  characters: []
 --- !u!1 &1042388371
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,10 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campPos: 1
-  playerCharacters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  characters: []
 --- !u!1 &1175405910
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campPos: 0
-  playerCharacters: []
+  characters: []
 --- !u!1 &1325543738
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campPos: 1
-  playerCharacters: []
+  characters: []
 --- !u!1 &1335221247
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campPos: 2
-  playerCharacters: []
+  characters: []
 --- !u!1001 &1999729357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,10 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campPos: 2
-  playerCharacters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  characters: []
 --- !u!224 &2110158889 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6359253742980266835, guid: e2a74c963d2683340b9748344cfa1ed2, type: 3}

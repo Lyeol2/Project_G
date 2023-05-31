@@ -29,14 +29,30 @@ namespace ProjectG
             camps.Add(ECampPos.EnemyFront, child.GetChild(0).GetComponent<CharacterCamp>());
 
         }
+        public void SetLocalScale()
+        {
+            foreach (var camp in camps)
+            {
+                foreach (var item in camp.Value.characters)
+                {
+                    item.transform.localScale = Vector3.one;
+                }
+            }
+        }
         public void AddCharacter(ECampPos pos, int index)
         {
             var obj = Instantiate(playerCharacterPrefab);
+
             obj.transform.SetParent(camps[pos].transform);
             obj.transform.localPosition = Vector3.zero;
 
            var character = obj.GetComponent<Character>();
             character.SetCharacter(index);
+
+            if(pos.HasFlag(ECampPos.Enemy) || pos.HasFlag(ECampPos.EnemyBack) || pos.HasFlag(ECampPos.EnemyMiddle) || pos.HasFlag(ECampPos.EnemyFront))
+            {
+                character.isEnemy = true;
+            }
 
             camps[pos].characters.Add(character);
         }

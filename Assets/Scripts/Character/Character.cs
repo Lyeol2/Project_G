@@ -28,7 +28,7 @@ namespace ProjectG
 
         public List<Skill> skills = new List<Skill>();
 
-
+        public bool isEnemy;
         public bool isActive = true;
         
         private void Start()
@@ -46,6 +46,8 @@ namespace ProjectG
         private void OnMouseDown()
         {
             if (!isActive) return;
+
+            if (isEnemy) return;
 
             SetUICharacterInfo();
         }

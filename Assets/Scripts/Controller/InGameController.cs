@@ -22,7 +22,7 @@ namespace ProjectG
         // ------------- Characters -------------------
 
         [SerializeField]
-        CharacterPool characterPool;
+        public CharacterPool characterPool;
 
         Dictionary<EInGameStateType, InGameState> cachedState = new Dictionary<EInGameStateType, InGameState>();
 
@@ -49,7 +49,12 @@ namespace ProjectG
 
             ChangeState(EInGameStateType.Battle);
         }
+        public override void UpdateController()
+        {
+            base.UpdateController();
 
+            cachedState[currentState].Idle(this);
+        }
         private void OnGUI()
         {
 
